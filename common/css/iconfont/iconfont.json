@@ -1,0 +1,72 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12566885",
+      "name": "春节-祈福消灾",
+      "font_class": "chunjie-qifuxiaozai",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "12835854",
+      "name": "中国年",
+      "font_class": "luogu",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "20383951",
+      "name": "春节-鱼",
+      "font_class": "chunjie-yu",
+      "unicode": "ec41",
+      "unicode_decimal": 60481
+    },
+    {
+      "icon_id": "20383959",
+      "name": "春节-扇子",
+      "font_class": "chunjie-shanzi",
+      "unicode": "ec43",
+      "unicode_decimal": 60483
+    },
+    {
+      "icon_id": "20383969",
+      "name": "春节-春字",
+      "font_class": "chunjie-chunzi",
+      "unicode": "ec47",
+      "unicode_decimal": 60487
+    },
+    {
+      "icon_id": "20383971",
+      "name": "春节-对联",
+      "font_class": "chunjie-duilian",
+      "unicode": "ec49",
+      "unicode_decimal": 60489
+    },
+    {
+      "icon_id": "20383973",
+      "name": "春节-花",
+      "font_class": "chunjie-hua",
+      "unicode": "ec4a",
+      "unicode_decimal": 60490
+    },
+    {
+      "icon_id": "20384021",
+      "name": "春节-房子",
+      "font_class": "chunjie-fangzi",
+      "unicode": "ec4f",
+      "unicode_decimal": 60495
+    },
+    {
+      "icon_id": "20384044",
+      "name": "春节-红包",
+      "font_class": "chunjie-hongbao",
+      "unicode": "ec53",
+      "unicode_decimal": 60499
+    }
+  ]
+}

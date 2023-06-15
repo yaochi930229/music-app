@@ -2,39 +2,53 @@ let baseUrl = 'http://127.0.0.1:3000';
 // #ifdef H5
 baseUrl = '/api'
 // #endif
-export default {
-	request(options) {
-		return new Promise((resove, reject) => {
-			uni.request({
-				url:`${baseUrl}${options.url}`,
-				method:options.method,
-				success: (res) => {
-					if (res.statusCode === 200) {
-						resove(res.data);
-					} else if (res.statusCode === 401) {
-						uni.showToast({
-							icon:'none',
-							duration:1500,
-							title:'未登录或登录失效'
-						})
-						reject(res.msg);
-					} else {
-						uni.showToast({
-							icon:'none',
-							duration:1500,
-							title:res.msg || '请求出错'
-						})
-					}
-				},
-				fail: (err) => {
-					uni.showToast({
-						icon:'none',
-						duration:1500,
-						title:err.errMsg || '请求出错'
-					})
-					reject(err);
-				}
-			})
-		})
+function request(url, data={}, method='GET', contentType=1) {
+	let header = {
+		'content-type': contentType === 1 ? 'application/json' : 'application/x-www-form-urlencoded'
 	}
-};
+	return new Promise((resolve, reject) => {
+		uni.request({
+			url: baseUrl + url,
+			data,
+			method,
+			header,
+			success: (res) => {
+				if (res.statusCode === 200) {
+					// 请求成功
+					resolve(res.data);
+				} else if (res.statusCode === 401) {
+					uni.showToast({
+						icon:"none",
+						title:'未登录或登录失效',
+						duration:1500
+					})
+					reject(res.data)
+				} else if (res.statusCode === 405) {
+					uni.showToast({
+						icon:"none",
+						title:'请求方法错误',
+						duration:1500
+					})
+					reject(res.data)
+				} else {
+					uni.showToast({
+						icon:"none",
+						title:'请求错误' + res.statusCode,
+						duration:1500
+					})
+					reject(res.data)
+				}
+			},
+			fail: (err) => {
+				uni.showToast({
+					icon:"none",
+					title:err.errMsg,
+					duration:1500
+				})
+				reject(err)
+			}
+		})
+	})
+}
+
+export default request;
